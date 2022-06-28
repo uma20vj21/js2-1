@@ -3,10 +3,10 @@ const button = document.getElementById('output');
 const fizzbuzzList = document.getElementById('fizzbuzzList');
 
 // リスト状で表したいので、関数で一連の流れを生成
-const listAdd = (a) => {
-  const li = document.createElement('li');
-  li.innerHTML = a;
-  fizzbuzzList.appendChild(li);
+const addList = (outputValue) => {
+  const p = document.createElement('p');
+  p.innerHTML = outputValue;
+  fizzbuzzList.appendChild(p);
 };
 // クリックされたらif文以下を実行（値を数値として受け取りたいのでNumberオブジェクトを用いた）
 button.addEventListener('click', () => {
@@ -21,14 +21,14 @@ button.addEventListener('click', () => {
   ) {
     for (i = 1; i < 100; i++) {
       if (i % fizzNum === 0 && i % buzzNum === 0) {
-        listAdd('FizzBuzz' + i);
+        addList('FizzBuzz' + i);
       } else if (i % fizzNum === 0) {
-        listAdd('Fizz' + i);
+        addList('Fizz' + i);
       } else if (i % buzzNum === 0) {
-        listAdd('Buzz' + i);
+        addList('Buzz' + i);
       }
     }
   } else {
-    listAdd('整数値を入力してください');
+    addList('整数値を入力してください');
   }
 });
